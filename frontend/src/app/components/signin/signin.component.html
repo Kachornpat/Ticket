@@ -1,1 +1,13 @@
-<p>signin works!</p>
+<form [formGroup]="signinForm" (ngSubmit)="signin()" novalidate>
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput type="password" placeholder="Ex. password" formControlName="password">
+    </mat-form-field>
+    <button color="accent" [disabled]="!signinForm.valid" mat-raised-button>
+        Sign In
+    </button>
+</form>

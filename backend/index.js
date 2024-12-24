@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const authRoutes = require('./routes/auth');
+const ticketsRoutes = require('./routes/tickets')
 const errorConstroller = require('./controllers/error');
 
 
@@ -17,6 +18,7 @@ app.use((req, res, next) => {
 
 })
 app.use('/auth', authRoutes);
+app.use('/ticket', ticketsRoutes);
 app.use(errorConstroller.get404);
 app.use(errorConstroller.get500);
 app.listen(ports, () => console.log(`Listening on port ${ports}`));

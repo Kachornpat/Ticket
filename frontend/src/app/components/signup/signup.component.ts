@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -22,12 +23,11 @@ import { MatButtonModule } from '@angular/material/button';
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
 
-  constructor() {
+  constructor(private authService: AuthService) { 
     this.signupForm = this.createFormGroup();
   }
 
   ngOnInit(): void {
-
   }
 
   createFormGroup(): FormGroup {
@@ -41,6 +41,8 @@ export class SignupComponent implements OnInit {
   }
 
   signup(): void {
-    console.log(this.signupForm.value);
+    this.authService
+      .signup(this.signupForm.value)
+      .subscribe((msg) => console.log(msg))
   }
 }

@@ -1,0 +1,22 @@
+mat-card {
+  margin-bottom: 1em;
+  font-size: 24px;
+  display: block; // fix float in button
+  padding: 1em;
+
+  button {
+    overflow: hidden;
+    float: right;
+  }
+
+  .ticket-title {
+    font-weight: bold;
+  }
+  .ticket-meta {
+    font-size: 16px;
+    font-style: italic;
+  }
+  .ticket-body {
+    margin-top: 1em;
+  }
+}
